@@ -1,0 +1,26 @@
+#change variable names to avoid contest violation
+
+class Solution:
+    def countDistinctIntegers(self, nums: List[int]) -> int:
+        
+        def rev(n):
+            res_val = ''
+            while n:
+                res_val = res_val + str(n % 10)
+                n = n // 10
+            res_val = int(res_val)
+            return res_val
+        
+        nums = list(set(nums))
+        n = len(nums)
+        
+        for j in range(n):
+            if nums[j] != rev(nums[j]):
+                nums.append(rev(nums[j]))
+                
+                
+        final_result = len(set(nums))
+        return final_result
+            
+        
+        
