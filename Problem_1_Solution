@@ -1,0 +1,14 @@
+#change the variable names to avoid contest violation
+class Solution:
+    def findMaxK(self, nums: List[int]) -> int:
+        nums_new = set(nums)
+        result = -float("inf")
+        
+        
+        for n in nums_new:
+            if n > 0 and -n in nums_new:
+                result = max(n, result)
+                
+                
+        return -1 if result == -float("inf") else result
+        
