@@ -1,0 +1,14 @@
+#change variable names to avoid contest violation
+
+class Solution:
+    def sumOfNumberAndReverse(self, num: int) -> bool:
+        def reverse(n):
+            return int(str(n)[::-1])
+
+        def sum_rev_numbers(num):
+            for i in range(num + 1):
+                if i == reverse(num - i):
+                    return i, num - i
+            return None
+
+        return True if sum_rev_numbers(num) else False
